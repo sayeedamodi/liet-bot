@@ -82,7 +82,8 @@
         }
 
         #chatbox {
-            background: var(--background-color);
+          background: rgb(174,199,215);
+          background: linear-gradient(90deg, rgba(174,199,215,1) 0%, rgba(231, 245, 245, 0.839) 47%, rgb(159, 174, 177) 100%);
             border-radius: 12px;
             box-shadow: var(--shadow);
             width: 100%;
@@ -317,7 +318,7 @@
 }
 
 .brutalist-button.openai {
-  background-color: #356854;
+  background-color: #556eff;
 }
 
 .brutalist-button::before {
@@ -556,10 +557,10 @@
 
 @keyframes spin {
   0% {
-    transform: translate(-50%, -50%) rotate(0deg);
+    transform: translate(-50%, -50%) rotate(360deg);
   }
   100% {
-    transform: translate(-50%, -50%) rotate(360deg);
+    transform: translate(-50%, -50%) rotate(0deg);
   }
 }
 
@@ -683,7 +684,7 @@
         const loader = document.getElementById('loader');
 
         function greetUser() {
-            const greeting = "Hello! How can I assist you today with information about our Engineering College?";
+            const greeting = "Hello! How can I assist you today with information about Lords Engineering College(LIET)?";
             appendMessage(greeting, 'bot');
         }
 

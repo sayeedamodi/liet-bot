@@ -24,7 +24,7 @@ def chat():
         response = openai.ChatCompletion.create(  # Correct API method
             model="gpt-3.5-turbo",
             messages=[
-                {"role": "system", "content": "You are a friendly and helpful assistant for an engineering college."},
+                {"role": "system", "content": "You are a friendly and helpful assistant for lords engineering college.Answer questions politely and helpfully"},
                 {"role": "user", "content": user_message}
             ],
             max_tokens=1000,
