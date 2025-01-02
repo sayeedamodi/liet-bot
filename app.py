@@ -8,6 +8,14 @@ from dotenv import load_dotenv
 load_dotenv()
 openai.api_key = os.getenv('OPENAI_API_KEY')
 
+def get_system_content():
+    try:
+        with open("system_content.txt", "r") as file:
+            return file.read().strip()  # Read content and remove leading/trailing whitespace
+    except Exception as e:
+        return f"Error loading system content: {str(e)}"
+
+
 app = Flask(__name__)
 CORS(app)  # Allow all origins
 
@@ -21,10 +29,11 @@ def chat():
     user_message = data.get('message')
 
     try:
+        system_content = get_system_content()
         response = openai.ChatCompletion.create(  # Correct API method
             model="gpt-3.5-turbo",
             messages=[
-                {"role": "system", "content": "You are a friendly and helpful assistant for lords engineering college.Answer questions politely and helpfully"},
+                {"role": "system", "content": system_content},
                 {"role": "user", "content": user_message}
             ],
             max_tokens=1000,
