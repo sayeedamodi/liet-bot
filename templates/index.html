@@ -100,10 +100,11 @@
             loader.style.display = 'flex';
 
 
-
+            const apiUrl = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
+           ? 'http://localhost:5000/chat' : 'https://liet-bot.onrender.com/chat';
 
             try {
-                const response = await fetch('http://localhost:5000/chat', {
+                const response = await fetch(apiUrl, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
