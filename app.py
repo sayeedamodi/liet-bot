@@ -3,12 +3,37 @@ from flask import Flask, request, jsonify, render_template
 import openai
 from flask_cors import CORS
 from dotenv import load_dotenv
+from pymongo import MongoClient
 
 # Load environment variables
 load_dotenv()
 openai.api_key = os.getenv('OPENAI_API_KEY')
+MONGO_URI = os.getenv('MONGO_URI') 
 
-def get_system_content():
+try:
+    # Attempt to connect to MongoDB
+    client = MongoClient(MONGO_URI, serverSelectionTimeoutMS=5000)  # 5-second timeout
+    # Test the connection
+    client.server_info()  # If the connection is successful, this will not raise an error
+    print("Connected to MongoDB successfully!")
+    
+    # Proceed with accessing the database and collection
+    db = client.get_database("lietContent")  # Replace with your database name
+    collection = db.get_collection("liet-content")
+    def get_system_content_from_db():
+        try:
+            # Fetch the system content document
+            system_content_doc = collection.find_one({"key": "system_content"})  # Use your query filter
+            if system_content_doc:
+                return system_content_doc.get("content", "Default system content")
+            return "System content not found in database."
+        except Exception as e:
+            return f"Error loading system content from MongoDB: {str(e)}"
+
+except Exception as e:
+    print(f"Error connecting to MongoDB: {str(e)}")
+
+def get_event_content():
     try:
         with open("system_content.txt", "r") as file:
             return file.read().strip()  # Read content and remove leading/trailing whitespace
@@ -29,11 +54,13 @@ def chat():
     user_message = data.get('message')
 
     try:
-        system_content = get_system_content()
+        system_content = get_system_content_from_db()
+        new_events = get_event_content()
         response = openai.ChatCompletion.create(  # Correct API method
             model="gpt-3.5-turbo",
             messages=[
                 {"role": "system", "content": system_content},
+                {"role": "system", "content": new_events},
                 {"role": "user", "content": user_message}
             ],
             max_tokens=1000,
