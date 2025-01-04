@@ -1,0 +1,668 @@
+:root {
+    --primary-color: #4a90e2;
+    --secondary-color: #f5f7fa;
+    --text-color: #333;
+    --background-color: #ffffff;
+    --chat-bot-bg: #f0f0f0;
+    --chat-user-bg: #4a90e2;
+    --chat-user-color: #ffffff;
+    --input-bg: #f5f7fa;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.button-container {
+    display: block; /* Ensure it is visible by default */
+}
+
+/* Hide on screens smaller than 768px */
+@media (max-width: 768px) {
+    .button-container,
+    .brutalist-button {
+        display: none; /* Hide on screens smaller than 768px */
+    }
+}
+
+/* Further adjustments for very small screens under 480px */
+@media (max-width: 480px) {
+    .button-container,
+    .brutalist-button {
+        display: none; /* Hide on screens smaller than 480px */
+    }
+
+    /* Further adjustments for small screens */
+    header h1 {
+        font-size: 1.2rem;
+    }
+
+    header h2 {
+        font-size: 0.8rem;
+    }
+
+    #chatbox {
+        width: 95%;
+        height: 60vh;
+    }
+
+    #input input {
+        font-size: 0.8rem;
+    }
+
+    #input button {
+        padding: 0.4rem 0.8rem;
+    }
+
+    footer h3 {
+        font-size: 0.8rem;
+    }
+
+    .button-text span:first-child {
+        font-size: 10px;
+    }
+
+    .button-text span:last-child {
+        font-size: 12px;
+    }
+}
+.dark-mode {
+    --primary-color: #61dafb;
+    --secondary-color: #2c3e50;
+    --text-color: #f5f7fa;
+    --background-color: #1a1a1a;
+    --chat-bot-bg: #2c3e50;
+    --chat-user-bg: #61dafb;
+    --chat-user-color: #1a1a1a;
+    --input-bg: #2c3e50;
+    --shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background: var(--background-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+header {
+    background: var(--primary-color);
+    color: var(--background-color);
+    padding: 1rem;
+    text-align: center;
+    box-shadow: var(--shadow);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+header h2 {
+    margin: 0.5rem 0 0;
+    font-size: 1rem;
+    font-weight: normal;
+    opacity: 0.8;
+}
+
+header img {
+    height: 40px;
+    width: 40px;
+}
+header .logo-div{
+   display: flex; 
+   justify-content: space-evenly;           
+} 
+main {
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 2rem;
+    min-height: calc(100vh - 140px); /* Adjust based on header and footer height */
+}
+
+#chatbox {
+    background: rgb(174,199,215);
+  background: linear-gradient(90deg, rgba(174,199,215,1) 0%, rgba(231, 245, 245, 0.839) 47%, rgb(159, 174, 177) 100%);
+  background: rgb(174,199,215);
+  background: linear-gradient(90deg, rgba(174,199,215,1) 0%, rgba(231, 245, 245, 0.839) 47%, rgb(159, 174, 177) 100%);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    width: 100%;
+    max-width: 600px;
+    height: 80vh; /* Set a fixed height */
+    display: flex;
+    flex-direction: column;
+}
+
+#messages {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 1rem;
+}
+
+.message {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: flex-start;
+}
+
+.message.user {
+    justify-content: flex-end;
+}
+
+.message-content {
+    padding: 0.75rem 1rem;
+    border-radius: 18px;
+    max-width: 70%;
+}
+
+.message.bot .message-content {
+    background-color: var(--chat-bot-bg);
+    color: var(--text-color);
+}
+
+.message.user .message-content {
+    background-color: var(--chat-user-bg);
+    color: var(--chat-user-color);
+}
+
+.message.bot img {
+    width: 30px;
+    height: 30px;
+    margin-right: 0.5rem;
+    border-radius: 50%;
+}
+
+#input {
+    display: flex;
+    padding: 1rem;
+    background-color: var(--background-color);
+    border-top: 1px solid var(--secondary-color);
+    position: sticky;
+    bottom: 0;
+}
+
+#input input {
+    flex-grow: 1;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 24px;
+    font-size: 1rem;
+    background-color: var(--input-bg);
+    color: var(--text-color);
+}
+
+#input input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--primary-color);
+}
+
+#input button {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    border: none;
+    border-radius: 24px;
+    padding: 0.75rem 1.5rem;
+    margin-left: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#input button:hover {
+    opacity: 0.9;
+}
+
+footer {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    padding: 1rem;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer img.logo {
+    height: 40px;
+    width: auto;
+}
+
+footer h3 {
+    margin: 0;
+    font-size: 1rem;
+}
+
+/* darkmode */
+/* From Uiverse.io by JkHuger */ 
+/* Default */
+/* From Uiverse.io by guilhermeyohan */ 
+.checkbox-apple {
+position: relative;
+width: 50px;
+height: 25px;
+margin: 20px;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+
+.checkbox-apple label {
+position: absolute;
+top: 0;
+left: 0;
+width: 50px;
+height: 25px;
+border-radius: 50px;
+background: linear-gradient(to bottom, #b3b3b3, #e6e6e6);
+cursor: pointer;
+transition: all 0.3s ease;
+}
+
+.checkbox-apple label:after {
+content: '';
+position: absolute;
+top: 1px;
+left: 1px;
+width: 23px;
+height: 23px;
+border-radius: 50%;
+background-color: #fff;
+box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+transition: all 0.3s ease;
+}
+
+.checkbox-apple input[type="checkbox"]:checked + label {
+background: linear-gradient(to bottom, #4cd964, #5de24e);
+}
+
+.checkbox-apple input[type="checkbox"]:checked + label:after {
+transform: translateX(25px);
+}
+
+.checkbox-apple label:hover {
+background: linear-gradient(to bottom, #b3b3b3, #e6e6e6);
+}
+
+.checkbox-apple label:hover:after {
+box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.yep {
+position: absolute;
+top: 0;
+left: 0;
+width: 50px;
+height: 20px;
+}      
+.loader {
+width: 120px;
+height: 22px;
+border-radius: 40px;
+color: #514b82;
+border: 2px solid;
+position: relative;
+}
+.loader::before {
+content: "";
+position: absolute;
+margin: 2px;
+width: 25%;
+top: 0;
+bottom: 0;
+left: 0;
+border-radius: inherit;
+background: currentColor;
+animation: l3 1s infinite linear;
+}
+@keyframes l3 {
+50% {left:100%;transform: translateX(calc(-100% - 4px))}
+}
+#loader {
+display: none;
+position: fixed;
+bottom: 20px;
+left: 50%;
+transform: translateX(-50%);
+z-index: 1000;
+}
+
+
+/* From Uiverse.io by 0xnihilism */ 
+.button-container {
+display: flex;
+justify-content: center;
+gap: 20px; /* Adjust this value to increase or decrease space between buttons */
+padding: 20px;
+height: 13em;
+width: 13em;
+}
+
+.brutalist-button {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+border: 3px solid #000000;
+border-radius: 12px;
+padding: 0;
+text-decoration: none;
+color: #000000;
+font-weight: bold;
+position: relative;
+box-shadow: 4px 4px 0px #000000;
+overflow: hidden;
+transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+height: 130px;
+width: 130px;
+cursor: pointer;
+}
+
+.brutalist-button.openai {
+background-color: #556eff;
+}
+
+.brutalist-button::before {
+content: "";
+position: absolute;
+left: 50%;
+bottom: -150%;
+width: 300%;
+height: 300%;
+border-radius: 50%;
+transform: translateX(-50%) scale(0);
+transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+z-index: 1;
+}
+
+.brutalist-button.openai::before {
+background-color: #316b58;
+}
+
+.brutalist-button.claude::before {
+background-color: #e3d19c;
+}
+
+.brutalist-button:hover::before {
+transform: translateX(-50%) scale(1);
+}
+
+.brutalist-button:hover {
+transform: translate(-4px, -4px);
+box-shadow: 8px 8px 0px #000000;
+}
+
+.brutalist-button:active {
+transform: translate(2px, 2px);
+box-shadow: 2px 2px 0px #000000;
+}
+
+.openai-logo {
+display: flex;
+align-items: center;
+justify-content: center;
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+z-index: 2;
+width: 90px;
+height: 90px;
+border-radius: 50%;
+transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.openai-logo {
+align-items: center;
+justify-content: center;
+background-color: #0f1715; /* OpenAI's green color */
+border-radius: 50%; /* This creates the circular background */
+}
+
+.openai-icon {
+width: 54px;
+height: 54px;
+fill: #ffffff; /* White color for the SVG */
+transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes spin {
+0% {
+transform: translate(-50%, -50%) rotate(0deg);
+}
+100% {
+transform: translate(-50%, -50%) rotate(360deg);
+}
+}
+
+.brutalist-button:hover .openai-logo {
+animation: spin 5s linear infinite;
+width: 50px;
+height: 50px;
+top: 28%;
+}
+
+.brutalist-button:hover .openai-icon {
+transform: scale(0.6);
+}
+
+.button-text {
+display: flex;
+flex-direction: column;
+align-items: center;
+line-height: 1.3;
+transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+text-align: center;
+opacity: 0;
+transform: translateY(20px);
+z-index: 2;
+position: absolute;
+bottom: 18px;
+left: 0;
+right: 0;
+}
+
+.button-text span:first-child {
+font-size: 13px;
+font-weight: 500;
+margin-bottom: 2px;
+}
+
+.button-text span:last-child {
+font-size: 16px;
+font-weight: 800;
+text-transform: uppercase;
+letter-spacing: 0.8px;
+color: #ffffff;
+}
+
+.brutalist-button:hover .button-text {
+opacity: 1;
+transform: translateY(0);
+}
+
+.brutalist-button.openai:hover .button-text {
+color: #d3d3d3;
+}
+
+.brutalist-button.openai:hover .button-text span:last-child {
+color: #d6cbbf;
+}
+
+
+/* From Uiverse.io by 0xnihilism */ 
+.button-container {
+display: inline;
+justify-content: center;
+gap: 20px; /* Adjust this value to increase or decrease space between buttons */
+padding: 0px;
+height: 10%;
+width: 10%;
+}
+
+.brutalist-button {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+border: 3px solid #000000;
+border-radius: 12px;
+padding: 0;
+text-decoration: none;
+color: #000000;
+font-weight: bold;
+position: relative;
+box-shadow: 4px 4px 0px #000000;
+overflow: hidden;
+transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+height: 90px;
+width: 90px;
+cursor: pointer;
+}
+
+.brutalist-button.openai {
+background-color: #356854;
+}
+
+.brutalist-button::before {
+content: "";
+position: absolute;
+left: 50%;
+bottom: -150%;
+width: 300%;
+height: 300%;
+border-radius: 50%;
+transform: translateX(-50%) scale(0);
+transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+z-index: 1;
+}
+
+.brutalist-button.openai::before {
+background-color: #316b58;
+}
+
+.brutalist-button.claude::before {
+background-color: #e3d19c;
+}
+
+.brutalist-button:hover::before {
+transform: translateX(-50%) scale(1);
+}
+
+.brutalist-button:hover {
+transform: translate(-4px, -4px);
+box-shadow: 8px 8px 0px #000000;
+}
+
+.brutalist-button:active {
+transform: translate(2px, 2px);
+box-shadow: 2px 2px 0px #000000;
+}
+
+.openai-logo {
+display: flex;
+align-items: center;
+justify-content: center;
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+z-index: 2;
+width: 90px;
+height: 90px;
+border-radius: 50%;
+transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.openai-logo {
+align-items: center;
+justify-content: center;
+background-color: #0f1715; /* OpenAI's green color */
+border-radius: 50%; /* This creates the circular background */
+}
+
+.openai-icon {
+width: 54px;
+height: 54px;
+fill: #ffffff; /* White color for the SVG */
+transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes spin {
+0% {
+transform: translate(-50%, -50%) rotate(360deg);
+}
+100% {
+transform: translate(-50%, -50%) rotate(0deg);
+}
+}
+
+.brutalist-button:hover .openai-logo {
+animation: spin 5s linear infinite;
+width: 50px;
+height: 50px;
+top: 28%;
+}
+
+.brutalist-button:hover .openai-icon {
+transform: scale(0.6);
+}
+
+.button-text {
+display: flex;
+flex-direction: column;
+align-items: center;
+line-height: 1.3;
+transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+text-align: center;
+opacity: 0;
+transform: translateY(20px);
+z-index: 2;
+position: absolute;
+bottom: 18px;
+left: 0;
+right: 0;
+}
+
+.button-text span:first-child {
+font-size: 13px;
+font-weight: 500;
+margin-bottom: 2px;
+}
+
+.button-text span:last-child {
+font-size: 16px;
+font-weight: 800;
+text-transform: uppercase;
+letter-spacing: 0.8px;
+color: #ffffff;
+}
+
+.brutalist-button:hover .button-text {
+opacity: 1;
+transform: translateY(0);
+}
+
+.brutalist-button.openai:hover .button-text {
+color: #d3d3d3;
+}
+
+.brutalist-button.openai:hover .button-text span:last-child {
+color: #d6cbbf;
+}
+
+/* @media (hover: hover) and (pointer: fine) {
+.brutalist-button:hover {
+transform: translate(-4px, -4px);
+box-shadow: 8px 8px 0px #000000;
+}
+} */
+
