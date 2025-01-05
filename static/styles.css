@@ -13,55 +13,6 @@
     display: block; /* Ensure it is visible by default */
 }
 
-/* Hide on screens smaller than 768px */
-@media (max-width: 768px) {
-    .button-container,
-    .brutalist-button {
-        display: none; /* Hide on screens smaller than 768px */
-    }
-}
-
-/* Further adjustments for very small screens under 480px */
-@media (max-width: 480px) {
-    .button-container,
-    .brutalist-button {
-        display: none; /* Hide on screens smaller than 480px */
-    }
-
-    /* Further adjustments for small screens */
-    header h1 {
-        font-size: 1.2rem;
-    }
-
-    header h2 {
-        font-size: 0.8rem;
-    }
-
-    #chatbox {
-        width: 95%;
-        height: 60vh;
-    }
-
-    #input input {
-        font-size: 0.8rem;
-    }
-
-    #input button {
-        padding: 0.4rem 0.8rem;
-    }
-
-    footer h3 {
-        font-size: 0.8rem;
-    }
-
-    .button-text span:first-child {
-        font-size: 10px;
-    }
-
-    .button-text span:last-child {
-        font-size: 12px;
-    }
-}
 .dark-mode {
     --primary-color: #61dafb;
     --secondary-color: #2c3e50;
@@ -302,10 +253,10 @@ width: 50px;
 height: 20px;
 }      
 .loader {
-width: 120px;
-height: 22px;
+width: 130px;
+height: 30px;
 border-radius: 40px;
-color: #514b82;
+color: #7ab0f1;
 border: 2px solid;
 position: relative;
 }
@@ -659,10 +610,93 @@ color: #d3d3d3;
 color: #d6cbbf;
 }
 
-/* @media (hover: hover) and (pointer: fine) {
+@media (hover: hover) and (pointer: fine) {
 .brutalist-button:hover {
 transform: translate(-4px, -4px);
 box-shadow: 8px 8px 0px #000000;
 }
-} */
+}
+/* Hide on screens smaller than 768px */
+@media (max-width: 768px) {
+    .button-container,
+    .brutalist-button {
+        display: none; /* Hide on screens smaller than 768px */
+    }
+    main {
+        min-height: auto;
+        padding: 5px;
+    }
+    header .logo-div {
+        justify-content: center;
+    }
+    header {
+        display: block;
+    }
+    #loader {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    }
+}
 
+
+/* Further adjustments for very small screens under 480px */
+@media (max-width: 480px) {
+    .button-container,
+    .brutalist-button {
+        display: none; /* Hide on screens smaller than 480px */
+    }
+
+    /* Further adjustments for small screens */
+    header h1 {
+        font-size: 1.2rem;
+    }
+
+    header h2 {
+        font-size: 0.8rem;
+    }
+    header .logo-div {
+        justify-content: center;
+    }
+    header {
+        display: block;
+    }
+    main {
+        min-height: auto;
+    }
+    #chatbox {
+        width: 95%;
+        height: 60vh;
+    }
+
+    #input input {
+        font-size: 0.8rem;
+    }
+
+    #input button {
+        padding: 0.4rem 0.8rem;
+    }
+
+    footer h3 {
+        font-size: 0.8rem;
+    }
+
+    .button-text span:first-child {
+        font-size: 10px;
+    }
+
+    .button-text span:last-child {
+        font-size: 12px;
+    }
+    #loader {
+        display: none;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translateX(-50%);
+        z-index: 1000;
+        }
+}
