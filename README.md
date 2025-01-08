@@ -93,6 +93,10 @@ Contributions are welcome! If you'd like to contribute:
 - Uses **OpenAI GPT-3.5 Turbo** to provide intelligent conversational responses.
 - Thanks to the open-source community for providing the tools that made this project possible.
 
+###ScreenShots
+-1) ![Screenshot 2025-01-02 230523](https://github.com/user-attachments/assets/f0a15006-661f-4bf1-b8aa-c72289797eb4)
+-2)![Screenshot 2025-01-04 142908](https://github.com/user-attachments/assets/d42c044f-f181-4e86-9f07-c8b1c0496f0c)
+-3) ![Screenshot 2025-01-04 143201](https://github.com/user-attachments/assets/10060666-052f-491b-b921-5420e356cea8)
 
 ### Key Updates:
 1. **OpenAI GPT-3.5 Turbo Integration**: This section includes the mention of OpenAI GPT-3.5 Turbo as the core AI model for generating responses.
