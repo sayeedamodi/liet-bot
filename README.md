@@ -91,6 +91,7 @@ Contributions are welcome! If you'd like to contribute:
 ### 📝 Acknowledgments
 - Designed to bridge the gap between students and college resources.
 - Uses **OpenAI GPT-3.5 Turbo** to provide intelligent conversational responses.
+- Special thanks to **[MohdFaizanUrRahman](https://github.com/MohdFaizanUrRahman)** and **[Sohailsp101](https://github.com/Sohailsp101)** for being my team members on this project.
 - Thanks to the open-source community for providing the tools that made this project possible.
 
 ###ScreenShots
@@ -101,7 +102,5 @@ Contributions are welcome! If you'd like to contribute:
 ### Key Updates:
 1. **OpenAI GPT-3.5 Turbo Integration**: This section includes the mention of OpenAI GPT-3.5 Turbo as the core AI model for generating responses.
 2. **Environment Variables**: The `.env` file now includes an `OPENAI_API_KEY` to authenticate requests with OpenAI's API.
-
-
 
 
